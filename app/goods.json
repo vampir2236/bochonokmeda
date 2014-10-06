@@ -1,0 +1,32 @@
+{
+    "goods": [
+        {
+            "title": "Липовый мёд",
+            "image": "lip-honey.jpg",
+            "unit": "л.",
+            "price": 350,
+            "currency": "руб."
+        },
+        {
+            "title": "Гречишный мёд",
+            "image": "gr-honey.jpg",
+            "unit": "л.",
+            "price": 400,
+            "currency": "руб."
+        },
+        {
+            "title": "Мёд разнотравье",
+            "image": "fl-honey.jpg",
+            "unit": "л.",
+            "price": 320,
+            "currency": "руб."
+        },
+        {
+            "title": "Оригинальный бочонок для мёда 3л.",
+            "image": "bochonok.jpg",
+            "unit": "шт.",
+            "price": 800,
+            "currency": "руб."
+        }
+    ]
+}

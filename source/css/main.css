@@ -1,0 +1,275 @@
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+.inlineblock {
+  display: inline-block;
+  vertical-align: top;
+}
+/* переменные */
+/* общие */
+* {
+  -moz-box-sizing: border-box;
+       box-sizing: border-box;
+}
+html {
+  min-height: 100%;
+  position: relative;
+  width: 100%;
+}
+body {
+  background-color: #ffc24c;
+  background-image: -webkit-linear-gradient(top, #ffc24c, #ffdb96);
+  background-image: linear-gradient(to bottom, #ffc24c, #ffdb96);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffc24c, endColorstr=#ffdb96, GradientType=0);
+  -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffc24c, endColorstr=#ffdb96, GradientType=0);
+  color: #b05b00;
+  font: 16px Georgia, "Century Schoolbook L", Serif;
+  margin-bottom: 60px;
+  width: 100%;
+}
+/*хэдер*/
+.header {
+  background-color: #ffa900;
+  background-image: -webkit-linear-gradient(top, #ffa900, #ffc24c);
+  background-image: linear-gradient(to bottom, #ffa900, #ffc24c);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffa900, endColorstr=#ffc24c, GradientType=0);
+  -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffa900, endColorstr=#ffc24c, GradientType=0);
+  padding-top: 10px;
+}
+@media only screen and (max-width: 550px) {
+  .header {
+    padding-top: 50px;
+  }
+}
+.header .container {
+  position: relative;
+}
+.header .phone {
+  font-size: 1.25em;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.header .phone__link {
+  color: #b05b00;
+  font-weight: bold;
+  text-decoration: none;
+}
+.header .phone__link:hover {
+  border-bottom: 2px dashed #b05b00;
+  text-decoration: none;
+}
+@media only screen and (min-width: 800px) {
+  .header .phone {
+    position: absolute;
+    right: 0;
+    top: 10px;
+  }
+}
+/*лого*/
+.logo {
+  margin-bottom: 5px;
+  text-align: left;
+}
+.logo__img {
+  max-width: 250px;
+}
+.logo__text {
+  left: -9999px;
+  position: absolute;
+  top: 0;
+}
+/*корзина*/
+.cart {
+  width: 250px;
+  position: fixed;
+  left: 0;
+  margin: auto;
+  right: 0;
+  top: 5px;
+  z-index: 1;
+}
+.cart__link {
+  background-color: #ffdb96;
+  border: 1px solid #b07400;
+  border-radius: 5px;
+  box-shadow: 0 0 3px #b07400;
+  color: #b05b00;
+  display: block;
+  font-size: 1.25em;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+}
+.cart__link:hover {
+  box-shadow: 0 0 6px 2px #d08900;
+  color: #b05b00;
+  text-decoration: none;
+}
+.cart__link:active {
+  border: 2px solid #b07400;
+}
+/* заголовок страницы*/
+.title {
+  font-size: 1.6em;
+  font-weight: bold;
+  text-align: center;
+  margin: 10px;
+}
+/*промо*/
+.promo {
+  font-size: 1.1em;
+  margin: 10px 10px 25px;
+}
+.promo .container {
+  background-color: #b05b00;
+  background-image: -webkit-linear-gradient(top, #d06c00, #b05b00);
+  background-image: linear-gradient(to bottom, #d06c00, #b05b00);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#b05b00, endColorstr=#d06c00, GradientType=0);
+  -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#b05b00, endColorstr=#d06c00, GradientType=0);
+  border-radius: 5px;
+  color: #ffcc96;
+  padding: 20px;
+}
+.promo__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.promo__item {
+  padding: 10px;
+  text-align: center;
+}
+.promo__item b {
+  color: #ffdb96;
+}
+.promo__item .glyphicon {
+  color: #ffdb96;
+  font-size: 1.9em;
+}
+/*описание*/
+.desc {
+  color: #b05b00;
+  font-style: italic;
+}
+.desc p {
+  margin: 10px 0;
+  text-indent: 15px;
+}
+/*товары*/
+.goods {
+  border-top: 1px dashed #b05b00;
+  border-bottom: 1px dashed #b05b00;
+}
+.goods__title,
+.goods__header {
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-size: 1.75em;
+  text-align: center;
+}
+.goods__list {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+.goods__item {
+  display: inline-block;
+  margin: 10px 20px;
+  width: 275px;
+  vertical-align: top;
+}
+.goods__header {
+  font-size: 1.5em;
+}
+.goods__photo {
+  display: block;
+  border-radius: 50%;
+  box-shadow: 0 0 20px 3px #d08900;
+  max-width: 100%;
+}
+.goods__price {
+  font-size: 1.2em;
+  margin-top: 15px;
+}
+.goods__spinner {
+  margin: 10px;
+}
+.goods__spinner .ui-spinner {
+  display: inline-block;
+}
+.goods__spinner .ui-spinner-input {
+  background-color: #ffdb96;
+  border: 1px solid #d08900;
+  box-shadow: 0 0 1px #b07400;
+  border-radius: 20px;
+  display: block;
+  float: left;
+  font-size: 1.5em;
+  height: 35px;
+  outline: none;
+  padding: 3px 10px;
+  text-align: center;
+  width: 80px;
+}
+.goods__spinner .ui-spinner-button {
+  background-color: #ffdb96;
+  background-image: -webkit-linear-gradient(top, #ffdb96, #ffc24c);
+  background-image: linear-gradient(to bottom, #ffdb96, #ffc24c);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffdb96, endColorstr=#ffc24c, GradientType=0);
+  -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffdb96, endColorstr=#ffc24c, GradientType=0);
+  border: 1px solid #b05b00;
+  border-radius: 50%;
+  box-shadow: 0 0 1px #b07400;
+  color: #b05b00;
+  cursor: pointer;
+  display: block;
+  float: left;
+  font-size: .8em;
+  font-weight: normal;
+  height: 35px;
+  line-height: 35px;
+  margin-left: 10px;
+  text-align: center;
+  width: 35px;
+}
+.goods__spinner .ui-spinner-button:hover {
+  box-shadow: 0 0 5px #b07400;
+}
+.goods__spinner .ui-spinner-button:active {
+  background-color: #ffc24c;
+  background-image: -webkit-linear-gradient(top, #ffc24c, #ffdb96);
+  background-image: linear-gradient(to bottom, #ffc24c, #ffdb96);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffc24c, endColorstr=#ffdb96, GradientType=0);
+  -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffc24c, endColorstr=#ffdb96, GradientType=0);
+  border: 2px solid #b05b00;
+}
+/*футер*/
+.footer {
+  background-color: #ffdb96;
+  background-image: -webkit-linear-gradient(top, #ffdb96, #ffffff);
+  background-image: linear-gradient(to bottom, #ffdb96, #ffffff);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffdb96, endColorstr=#ffffff, GradientType=0);
+  -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffdb96, endColorstr=#ffffff, GradientType=0);
+  bottom: 0;
+  height: 60px;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
+.footer .phone {
+  margin: 5px;
+  text-align: center;
+}
+.footer .phone__link {
+  color: #b05b00;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-decoration: none;
+}
+.footer .phone__link:hover {
+  border-bottom: 2px dashed #b05b00;
+}

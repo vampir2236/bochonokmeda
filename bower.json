@@ -1,0 +1,20 @@
+{
+  "name": "bochenokmeda",
+  "version": "0.0.0",
+  "authors": [
+    "vampir2236 <vampir2236@mail.ru>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "jquery": "1.11.1",
+    "bootstrap": "3",
+    "handlebars": "~2.0.0"
+  }
+}
