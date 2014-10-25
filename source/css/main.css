@@ -135,6 +135,11 @@ body {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffc24c, endColorstr=#ffdb96, GradientType=0);
   -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffc24c, endColorstr=#ffdb96, GradientType=0);
 }
+@media only screen and (max-width: 650px) {
+  .cart__link {
+    font-size: 1.2em;
+  }
+}
 /* заголовок страницы*/
 .title {
   font-size: 1.6em;
@@ -332,7 +337,9 @@ body {
   border-radius: 5px;
   box-shadow: 0 0 3px #b05b00;
 }
-.modal__content .close {
+.modal__close-btn {
+  float: right;
+  font-size: 1.1em;
   background-color: #ffdb96;
   background-image: -webkit-linear-gradient(top, #ffdb96, #ffc24c);
   background-image: linear-gradient(to bottom, #ffdb96, #ffc24c);
@@ -348,21 +355,21 @@ body {
   padding: 5px;
   text-align: center;
   text-decoration: none;
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
 }
-.modal__content .close:focus {
+.modal__close-btn:focus {
   color: #b05b00;
   text-decoration: none;
   outline: none;
 }
-.modal__content .close:hover {
+.modal__close-btn:hover {
   box-shadow: 0 0 5px #b05b00;
   color: #b05b00;
   text-decoration: none;
 }
-.modal__content .close:active {
+.modal__close-btn:active {
   border: 1px solid #b05b00;
   background-color: #ffc24c;
   background-image: -webkit-linear-gradient(top, #ffc24c, #ffdb96);
@@ -370,7 +377,7 @@ body {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffc24c, endColorstr=#ffdb96, GradientType=0);
   -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffc24c, endColorstr=#ffdb96, GradientType=0);
 }
-.modal__content .close > span {
+.modal__close-btn > span {
   outline: none;
   opacity: 1;
   color: #b05b00;
@@ -416,21 +423,22 @@ body {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffc24c, endColorstr=#ffdb96, GradientType=0);
   -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffc24c, endColorstr=#ffdb96, GradientType=0);
 }
+@media only screen and (max-width: 650px) {
+  .modal__btn {
+    font-size: 1em;
+  }
+}
 .modal__btn--invert {
   background-color: #d06c00;
   background-image: -webkit-linear-gradient(top, #d06c00, #b05b00);
   background-image: linear-gradient(to bottom, #d06c00, #b05b00);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#d06c00, endColorstr=#b05b00, GradientType=0);
   -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#d06c00, endColorstr=#b05b00, GradientType=0);
-  border: 1px solid #ffcc96;
-  box-shadow: 0 0 1px #ffcc96;
   color: #ffcc96;
 }
 .modal__btn--invert:hover,
 .modal__btn--invert:focus {
   color: #ffcc96;
-  border: 1px solid #ffcc96;
-  box-shadow: 0 0 5px #ffcc96;
 }
 .modal__btn--invert:active {
   color: #ffcc96;
@@ -440,33 +448,84 @@ body {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#b05b00, endColorstr=#d06c00, GradientType=0);
   -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#b05b00, endColorstr=#d06c00, GradientType=0);
 }
-.product {
-  border-bottom: 2px dotted #b05b00;
+/*товары корзины*/
+.cart-products {
+  border-bottom: 1px dotted #b05b00;
 }
-.product__title {
+.cart-products__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.cart-products__item {
+  margin-bottom: 20px;
+}
+.cart-products__title,
+.cart-products__quant,
+.cart-products__sum {
   display: inline-block;
+  vertical-align: middle;
+}
+.cart-products__title {
+  font-size: 1.1em;
   font-weight: bold;
+  margin-bottom: 10px;
   width: 40%;
 }
 @media only screen and (max-width: 650px) {
-  .product__title {
-    width: 100%;
-    margin-bottom: 10px;
+  .cart-products__title {
     text-align: center;
-  }
-}
-.product__quant {
-  display: inline-block;
-  vertical-align: middle;
-  text-align: left;
-  width: 50%;
-}
-@media only screen and (max-width: 650px) {
-  .product__quant {
     width: 100%;
-    margin-bottom: 10px;
   }
 }
-.product__sum {
-  line-height: 45px;
+.cart-products__sum {
+  font-size: 1.1em;
+  margin-left: 5px;
+}
+.cart-products__summary {
+  font-size: 1.25em;
+  margin-bottom: 10px;
+}
+.cart-products .ui-spinner-input {
+  font-size: 1.2em;
+  height: 30px;
+}
+.cart-products .ui-spinner-button {
+  background-color: #ffdb96;
+  background-image: -webkit-linear-gradient(top, #ffdb96, #ffc24c);
+  background-image: linear-gradient(to bottom, #ffdb96, #ffc24c);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffdb96, endColorstr=#ffc24c, GradientType=0);
+  -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffdb96, endColorstr=#ffc24c, GradientType=0);
+  border: 1px solid #b05b00;
+  border-radius: 5px;
+  box-shadow: 0 0 1px #b05b00;
+  color: #b05b00;
+  cursor: pointer;
+  display: block;
+  outline: none;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  padding: 3px;
+}
+.cart-products .ui-spinner-button:focus {
+  color: #b05b00;
+  text-decoration: none;
+  outline: none;
+}
+.cart-products .ui-spinner-button:hover {
+  box-shadow: 0 0 5px #b05b00;
+  color: #b05b00;
+  text-decoration: none;
+}
+.cart-products .ui-spinner-button:active {
+  border: 1px solid #b05b00;
+  background-color: #ffc24c;
+  background-image: -webkit-linear-gradient(top, #ffc24c, #ffdb96);
+  background-image: linear-gradient(to bottom, #ffc24c, #ffdb96);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffc24c, endColorstr=#ffdb96, GradientType=0);
+  -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffc24c, endColorstr=#ffdb96, GradientType=0);
 }
