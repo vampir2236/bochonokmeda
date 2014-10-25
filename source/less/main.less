@@ -169,6 +169,10 @@ body {
         .button();
 
         font-size: 1.3em;
+
+        @media only screen and (max-width: 650px) {
+            font-size: 1.2em;
+        }
     }
 }
 
@@ -352,7 +356,6 @@ body {
 }
 
 .modal {
-
     &__title {
         text-align: center;
     }
@@ -364,40 +367,41 @@ body {
         border: 1px solid @color-secondary-2-4;
         border-radius: 5px;
         box-shadow: 0 0 3px @color-secondary-2-4;
-        
-        .close {
-            .button-circle(35px, 35px);
+    }
 
-            &>span {
-                outline: none;
-                opacity: 1;
-                color: @color-secondary-2-4;
-            }
+    &__close-btn {
+        float: right;
+        font-size: 1.1em;
+        .button-circle(30px, 30px);
+
+        &>span {
+            outline: none;
+            opacity: 1;
+            color: @color-secondary-2-4;
         }
     }
 
     &__btn {
         display: inline-block;
         font-size: 1.1em;
-
         float: right;
         .button();
 
         margin-left: 10px;
 
+        @media only screen and (max-width: 650px) {
+            font-size: 1em;
+        }
+
         &--invert {
             background-color: @color-secondary-2-3;
             .linear-gradient(@color-secondary-2-3, @color-secondary-2-4);
-            border: 1px solid @color-secondary-2-1;
-            box-shadow: 0 0 1px @color-secondary-2-1;
 
             color: @color-secondary-2-1;
 
             &:hover,
             &:focus {
                 color: @color-secondary-2-1;
-                border: 1px solid @color-secondary-2-1;
-                box-shadow: 0 0 5px @color-secondary-2-1;
             }
 
             &:active {
@@ -409,34 +413,57 @@ body {
 }
 
 
-.product {
-    border-bottom: 2px dotted @color-secondary-2-4;
+/*товары корзины*/
+.cart-products {
+    border-bottom: 1px dotted @color-secondary-2-4;
 
-    &__title {
-        display: inline-block;
-        font-weight: bold;
-        width: 40%;
-
-        @media only screen and (max-width:650px) {
-            width: 100%;
-            margin-bottom: 10px;
-            text-align: center;
-        }
+    &__list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
     }
 
-    &__quant {
+    &__item {
+        margin-bottom: 20px;
+    }
+
+    &__title,
+    &__quant,
+    &__sum {
         display: inline-block;
         vertical-align: middle;
-        text-align: left;
-        width: 50%;
+    }
+
+    &__title {
+        font-size: 1.1em;
+        font-weight: bold;
+        margin-bottom: 10px;
+        width: 40%;
 
         @media only screen and (max-width: 650px) {
+            text-align: center;
             width: 100%;
-            margin-bottom: 10px;
         }
     }
 
     &__sum {
-        line-height: 45px;
+        font-size: 1.1em;
+        margin-left: 5px;
     }
+
+    &__summary {
+        font-size: 1.25em;
+        margin-bottom: 10px;
+    }
+
+    .ui-spinner-input {
+        font-size: 1.2em;
+        height: 30px;
+    }
+
+    .ui-spinner-button {
+        .button-circle(30px, 30px);
+        padding: 3px;
+    }
+
 }
