@@ -21,12 +21,12 @@
 
 <body>
 
-    <!-- Хэдер -->
+    <!--Хэдер-->
     <header class="header">
         <div class="container">
             <div class="col-lg-12">
 
-                <!-- Лого -->
+                <!--Лого-->
                 <div class="logo">
                     <a href="//bochenokmeda.ru" class="logo__link">
                         <img src="img/logo2.png" alt="Бочонок мёда" class="logo__img">
@@ -41,9 +41,9 @@
                     </a>
                 </div>
 
-                <!-- Кнопка корзины -->
+                <!--Кнопка корзины-->
                 <div class="cart">
-                    <a href="#" class="cart__link">
+                    <a href="#" class="cart__link" data-toggle="modal" data-target="#cart-modal">
                         <span class="glyphicon glyphicon-shopping-cart"></span>
                         <span class="cart__value">Ваша корзина пуста</span>
                     </a>
@@ -51,7 +51,7 @@
 
             </div>
 
-            <!-- Заголовок сайта -->
+            <!--Заголовок сайта-->
             <div class="col-lg-12">
                 <h1 class="title">
                     Вкусный и полезный мёд для Вас и Ваших родных
@@ -62,43 +62,41 @@
     </header>
 
 
-    <!-- Акции и бонусы -->
+    <!--Акции и бонусы-->
     <div class="promo">
         <div class="container">
-            <div class="row">
-                <ul class="promo__list">
+            <ul class="promo__list">
 
-                    <li class="promo__item col-sm-3">
-                        <p><span class="glyphicon glyphicon-certificate"></span>
-                        </p>
-                        <b>100% натуральный</b> мёд
-                    </li>
+                <li class="promo__item col-sm-3">
+                    <p><span class="glyphicon glyphicon-certificate"></span>
+                    </p>
+                    <b>100% натуральный</b> мёд
+                </li>
 
-                    <li class="promo__item col-sm-3">
-                        <p><span class="glyphicon glyphicon-envelope"></span>
-                        </p>
-                        <b>Бесплатная доставка</b> по городу Ижевск
-                    </li>
+                <li class="promo__item col-sm-3">
+                    <p><span class="glyphicon glyphicon-envelope"></span>
+                    </p>
+                    <b>Бесплатная доставка</b> по городу Ижевск
+                </li>
 
-                    <li class="promo__item col-sm-3">
-                        <p><span class="glyphicon glyphicon-glass"></span>
-                        </p>
-                        <b>Дегустация мёда</b> перед покупкой
-                    </li>
+                <li class="promo__item col-sm-3">
+                    <p><span class="glyphicon glyphicon-glass"></span>
+                    </p>
+                    <b>Дегустация мёда</b> перед покупкой
+                </li>
 
-                    <li class="promo__item col-sm-3">
-                        <p><span class="glyphicon glyphicon-gift"></span>
-                        </p>
-                        При покупке от 5 литров <b>1 литр в подарок</b>
-                    </li>
+                <li class="promo__item col-sm-3">
+                    <p><span class="glyphicon glyphicon-gift"></span>
+                    </p>
+                    При покупке от 5 литров <b>1 литр в подарок</b>
+                </li>
 
-                </ul>
-            </div>
+            </ul>
         </div>
     </div>
 
 
-    <!-- Описание -->
+    <!--Описание-->
     <div class="desc hidden-xs">
         <div class="container">
             <div class="row">
@@ -127,7 +125,7 @@
     </div>
 
 
-    <!-- контейнер для товаров -->
+    <!--контейнер для товаров-->
     <div class="products">
         <div class="container">
             <h2 class="products__title">Наш ассортимент</h2>
@@ -136,7 +134,7 @@
     </div>
 
 
-    <!-- Футер -->
+    <!--Футер-->
     <div class="footer">
         <div class="container">
 
@@ -155,16 +153,16 @@
     </div>
 
 
-    <!-- Контейнер корзины -->
+    <!--Контейнер корзины-->
     <div class="modal__wrapper"></div>
 
 
-    <!-- Шаблон товаров -->
+    <!--Шаблон товаров-->
     <script id="products-template" type="text/x-handlebars-template">
-        <ul class="products__list row">
+        <ul class="products__list">
         {{#each products}}
             <li class="products__item">
-                <h2 class="products__header">{{title}}</h2>
+                <h3 class="products__header">{{title}}</h3>
                 <div class="products__content">
                     <img src="img/{{image}}" alt="{{title}}" class="products__photo">
                     <div class="products__price">Цена ({{unit}}): {{price}} {{currency}}</div>
@@ -178,14 +176,14 @@
     </script>
 
 
-    <!-- Шаблон корзины -->
+    <!--Шаблон корзины-->
     <script id="modal-template" type="text/x-handlebars-template">
-        <div class="m1odal f1ade">
+        <div id="cart-modal" class="modal fade">
             <div class="modal-dialog">
                 <div class="modal__content">
 
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">
+                        <button type="button" class="modal__close-btn" data-dismiss="modal">
                             <span>&times;</span>
                         </button>
                         <h3 class="modal__title">Корзина</h3>
@@ -193,22 +191,25 @@
 
                     <div class="modal-body">
                         <!--список товаров-->
-                        <div class="product container-fluid">
-                            <ul class="product__list"></ul>
-                            {{#each products}}
-                                <div class="product__item row">
-                                    <div class="product__title co1l-xs-12 co1l-sm-5">
-                                        <strong>{{title}}</strong>
+                        <div class="cart-products container-fluid">
+                            <ul class="cart-products__list">
+                                {{#each products}}
+                                <li class="cart-products__item">
+                                    <div class="cart-products__title">
+                                        {{title}}
                                     </div>
-                                    <div class="product__quant col-1xs-12 col-1sm-7">
+                                    <div class="cart-products__quant">
                                         <input type="text" class="spinner" value="0" readonly data-id="{{@index}}">
-                                        <span class="product__sum" data-id="{{@index}}"> * {{price}} = {{sum}} {{currency}}</span>
                                     </div>
-                                </div>
-                            {{/each}}
-                            <h3>
-                                Сумма заказа <span class="product__total-sum">{{totalSum}}</span> руб.
-                            </h3>
+                                    <div class="cart-products__sum" data-id="{{@index}}">
+                                        * {{price}} = {{sum}} {{currency}}
+                                    </div>
+                                </li>
+                                {{/each}}
+                            </ul>
+                            <div class="cart-products__summary">
+                                Итого <span class="cart-products__total-sum">{{totalSum}}</span> руб.
+                            </div>
                         </div>
 
                         <!--контакная информация-->
