@@ -85,8 +85,8 @@
                 // кэшируем переменные
                 _this.$cartValue = $('.cart__value');
                 _this.$spinners = $('.spinner');
-                _this.$productSum = $('.product__sum');
-                _this.$productTotalSum = $('.product__total-sum');
+                _this.$productSum = $('.cart-products__sum');
+                _this.$productTotalSum = $('.cart-products__total-sum');
 
                 // отображаем сумму заказа
                 _this.$cartValue.text(_this.getCartValue(cart.totalSum));
