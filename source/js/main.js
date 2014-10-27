@@ -5,7 +5,7 @@
 
     var app = (function () {
 
-        var cart, popover;
+        var cart;
 
         return {
 
@@ -22,6 +22,7 @@
             $contactsEmail: null,
             $cartModal: null,
             $confirmModal: null,
+
 
             // инициализация модуля
             init: function () {
@@ -107,9 +108,6 @@
                 // убираем стандартный текст спиннеров
                 $('.ui-icon').text('');
 
-                // создание тултипов для валидации данных
-                _this.createValidationTooltips();
-
                 // маска для ввода телефона
                 _this.$contactsPhone.mask('+7 (000) 000 00 00');
 
@@ -137,51 +135,13 @@
             },
 
 
-            // создание тултипов для валидации данных
-            createValidationTooltips: function () {
-                var _this = this;
-
-                _this.$products.tooltip({
-                    title: 'Выберите товар',
-                    trigger: 'manual'
-                });
-                _this.$contactsName.tooltip({
-                    title: 'Введите Ваше имя',
-                    trigger: 'manual'
-                });
-                _this.$contactsPhone.tooltip({
-                    title: 'Введите Ваш телефон',
-                    trigger: 'manual'
-                });
-                _this.$contactsEmail.tooltip({
-                    title: 'Введите Ваш email',
-                    trigger: 'manual'
-                });
-                _this.$contactsForm.tooltip({
-                    title: 'Ваш заказ не был принят. Возможно возникли технические неполадки. Попробуйте повторить заказ еще раз.',
-                    trigger: 'manual'
-                });
-            },
-
-
-            // скрытие тултипов валидации
-            hideValidationTooltips: function () {
-                var _this = this;
-
-                _this.$products.tooltip('hide');
-                _this.$contactsName.tooltip('hide');
-                _this.$contactsPhone.tooltip('hide');
-                _this.$contactsEmail.tooltip('hide');
-                _this.$contactsForm.tooltip('hide');
-            },
-
-
             // обработчики событий
             setEventListeners: function () {
                 var _this = this;
 
                 $('.ui-spinner-button').on('click', $.proxy(_this.spinnerBtnClick, _this));
                 _this.$spinners.on('change', $.proxy(_this.spinnerOnChange, _this));
+                _this.$contactsForm.on('submit', $.proxy(_this.buyProducts, _this));
                 $('.modal__order').on('click', $.proxy(_this.buyProducts, _this));
             },
 
@@ -232,6 +192,9 @@
                     type: 'post',
                     context: _this,
                     data: JSON.stringify(cart)
+                    // ошибка сервера если ставить тип данных json :(
+                    //,
+                    //dataType: 'json'
                 })
                     .done(function (data) {
                         var _this = this;
@@ -240,12 +203,41 @@
                         _this.$confirmModal.modal('show');
                     })
                     .fail(function (data) {
-                        console.log(data);
-                        _this.$contactsForm.tooltip('show');
+                        _this.showValidationTooltip(_this.$contactsForm,
+                            'Ваш заказ не был принят. Возможно возникли технические неполадки. Попробуйте повторить заказ еще раз.'
+                        );
                     })
                     .always(function () {
                         $(e.target).removeAttr('disabled');
                     });
+            },
+
+
+            // скрытие тултипов валидации
+            hideValidationTooltips: function () {
+                var _this = this;
+
+                _this.$products.tooltip('destroy');
+                _this.$contactsName.tooltip('destroy');
+                _this.$contactsPhone.tooltip('destroy');
+                _this.$contactsEmail.tooltip('destroy');
+                _this.$contactsForm.tooltip('destroy');
+            },
+
+
+            // показать тултип валидации
+            showValidationTooltip: function (elem, title) {
+                var $elem = $(elem);
+
+                $elem.tooltip({
+                    title: title,
+                    trigger: 'manual'
+                }).tooltip('show');
+
+                // закрытие тултипа по клику
+                $('.tooltip-inner').on('click', function () {
+                    $elem.tooltip('destroy');
+                });
             },
 
 
@@ -263,22 +255,22 @@
                 };
 
                 if (!cart.totalSum) {
-                    _this.$products.tooltip('show');
+                    _this.showValidationTooltip(_this.$products, 'Выберите товар');
                     return false;
                 }
 
                 if (!cart.contacts.name) {
-                    _this.$contactsName.tooltip('show');
+                    _this.showValidationTooltip(_this.$contactsName, 'Введите Ваше имя');
                     return false;
                 }
 
                 if (!/^\+7\s\(\d{3}\)\s\d{3}\s\d{2}\s\d{2}$/.test(cart.contacts.phone)) {
-                    _this.$contactsPhone.tooltip('show');
+                    _this.showValidationTooltip(_this.$contactsPhone, 'Введите Ваш телефон');
                     return false;
                 }
 
                 if (!/.+@.+\..+/.test(cart.contacts.email)) {
-                    _this.$contactsEmail.tooltip('show');
+                    _this.showValidationTooltip(_this.$contactsEmail, 'Введите Ваш email');
                     return false;
                 }
 
