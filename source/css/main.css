@@ -321,6 +321,11 @@ body {
 .modal-header {
   border-bottom: 1px dotted #b05b00;
 }
+@media only screen and (max-width: 650px) {
+  .modal-body {
+    padding: 5px;
+  }
+}
 .modal-footer {
   border-top: 1px dotted #b05b00;
 }
@@ -448,6 +453,15 @@ body {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#b05b00, endColorstr=#d06c00, GradientType=0);
   -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#b05b00, endColorstr=#d06c00, GradientType=0);
 }
+.modal__btn--invert:disabled {
+  box-shadow: none;
+  color: #ffcc96;
+  background-color: #b05b00;
+  background-image: -webkit-linear-gradient(top, #b05b00, #d06c00);
+  background-image: linear-gradient(to bottom, #b05b00, #d06c00);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#b05b00, endColorstr=#d06c00, GradientType=0);
+  -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#b05b00, endColorstr=#d06c00, GradientType=0);
+}
 /*товары корзины*/
 .cart-products {
   border-bottom: 1px dotted #b05b00;
@@ -460,10 +474,18 @@ body {
 .cart-products__item {
   margin-bottom: 20px;
 }
+.cart-products__item:before,
+.cart-products__item:after {
+  content: "";
+  display: table;
+}
+.cart-products__item:after {
+  clear: both;
+}
 .cart-products__title,
 .cart-products__quant,
 .cart-products__sum {
-  display: inline-block;
+  float: left;
   vertical-align: middle;
 }
 .cart-products__title {
@@ -476,6 +498,14 @@ body {
   .cart-products__title {
     text-align: center;
     width: 100%;
+  }
+  .cart-products__title:before,
+  .cart-products__title:after {
+    content: "";
+    display: table;
+  }
+  .cart-products__title:after {
+    clear: both;
   }
 }
 .cart-products__sum {
@@ -528,4 +558,27 @@ body {
   background-image: linear-gradient(to bottom, #ffc24c, #ffdb96);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffc24c, endColorstr=#ffdb96, GradientType=0);
   -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffc24c, endColorstr=#ffdb96, GradientType=0);
+}
+/*контактные данные*/
+.contacts__description {
+  font-size: 1.1em;
+  padding: 15px 5px 10px;
+  text-align: center;
+}
+/*тултип валидации*/
+.tooltip-inner {
+  background-color: #d06c00;
+  border: 1px solid #d06c00;
+  color: #ffecc9;
+  font: 1.4em Georgia, "Century Schoolbook L", Serif;
+  max-width: 350px;
+  padding: 5px 10px;
+}
+.tooltip.top .tooltip-arrow {
+  border-top-color: #d06c00;
+}
+/*форма сообщения о подтверждении заказа*/
+.confirm__content {
+  font-size: 1.2em;
+  text-align: center;
 }
