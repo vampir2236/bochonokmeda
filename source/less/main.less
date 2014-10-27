@@ -156,13 +156,12 @@ body {
 
 /*корзина*/
 .cart {
-    width: 290px;
-
-    position: fixed;
     left: 0;
     margin: auto;
+    position: fixed;
     right: 0;
     top:5px;
+    width: 290px;
     z-index: 1;
 
     &__link {
@@ -276,6 +275,28 @@ body {
 
     &__spinner {
         margin: 10px;
+    }
+}
+
+
+/*оформить заказ*/
+.order {
+    font: bold 1.25em "Palatino Linotype","Book Antiqua",Palatino,serif;
+    margin-bottom: 20px;
+    text-align: center;
+
+    &__link {
+        color: @color-secondary-2-4;
+        text-decoration: none;
+        outline: none;
+
+        &:hover,
+        &:focus {
+            border-bottom: 2px dashed @color-secondary-2-4;
+            color: @color-secondary-2-4;
+            outline: none;
+            text-decoration: none;
+        }
     }
 }
 
@@ -490,15 +511,33 @@ body {
         padding: 15px 5px 10px;
         text-align: center;
     }
+
+    &__submit {
+        left: -9999px;
+        position: absolute;
+        top: 0;
+    }
+
+    /*цвет инпута (автозаполнение)*/
+    input {
+        color: #666 !important;
+        font-size: 1em;
+    }
+
+    input:-webkit-autofill {
+        -webkit-box-shadow: inset 0 0 0 50px #fff !important;
+        -webkit-text-fill-color: #333 !important;
+        color: #333 !important;
+    }
 }
 
 
 /*тултип валидации*/
-
 .tooltip-inner {
     background-color: @color-secondary-2-3;
     border: 1px solid @color-secondary-2-3;
     color: lighten(@color-primary-1, 10%);
+    cursor: pointer;
     font: 1.4em Georgia, "Century Schoolbook L", Serif;
     max-width: 350px;
     padding: 5px 10px;
