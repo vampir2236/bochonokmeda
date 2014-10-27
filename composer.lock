@@ -1,0 +1,124 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "5faf41ffc45d3828e45bf52e9d95b939",
+    "packages": [
+        {
+            "name": "phpmailer/phpmailer",
+            "version": "v5.2.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PHPMailer/PHPMailer.git",
+                "reference": "d3802c597bff8f6c2ccfa3eab2a511aa01b8d68f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/d3802c597bff8f6c2ccfa3eab2a511aa01b8d68f",
+                "reference": "d3802c597bff8f6c2ccfa3eab2a511aa01b8d68f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.0.0"
+            },
+            "require-dev": {
+                "phpdocumentor/phpdocumentor": "*",
+                "phpunit/phpunit": "4.0.*"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "class.phpmailer.php",
+                    "class.pop3.php",
+                    "class.smtp.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-2.1"
+            ],
+            "authors": [
+                {
+                    "name": "Jim Jagielski",
+                    "email": "jimjag@gmail.com"
+                },
+                {
+                    "name": "Marcus Bointon",
+                    "email": "phpmailer@synchromedia.co.uk"
+                },
+                {
+                    "name": "Andy Prevost",
+                    "email": "codeworxtech@users.sourceforge.net"
+                },
+                {
+                    "name": "Brent R. Matzelle"
+                }
+            ],
+            "description": "PHPMailer is a full-featured email creation and transfer class for PHP",
+            "time": "2014-05-14 07:04:18"
+        },
+        {
+            "name": "smarty/smarty",
+            "version": "v3.1.19",
+            "source": {
+                "type": "svn",
+                "url": "http://smarty-php.googlecode.com/svn",
+                "reference": "/tags/v3.1.19/@4880"
+            },
+            "require": {
+                "php": ">=5.2"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "libs/Smarty.class.php",
+                    "libs/SmartyBC.class.php",
+                    "libs/sysplugins/smarty_security.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Monte Ohrt",
+                    "email": "monte@ohrt.com"
+                },
+                {
+                    "name": "Uwe Tews",
+                    "email": "uwe.tews@googlemail.com"
+                },
+                {
+                    "name": "Rodney Rehm",
+                    "email": "rodney.rehm@medialize.de"
+                }
+            ],
+            "description": "Smarty - the compiling PHP template engine",
+            "homepage": "http://www.smarty.net",
+            "keywords": [
+                "templating"
+            ],
+            "time": "2014-10-02 17:56:59"
+        }
+    ],
+    "packages-dev": [
+
+    ],
+    "aliases": [
+
+    ],
+    "minimum-stability": "stable",
+    "stability-flags": [
+
+    ],
+    "prefer-stable": false,
+    "platform": [
+
+    ],
+    "platform-dev": [
+
+    ]
+}
