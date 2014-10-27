@@ -52,6 +52,7 @@
                   'bower_components/bootstrap/dist/js/bootstrap.js',
                   'bower_components/handlebars/handlebars.js',
                   'source/js/jquery-ui.min.js',
+                  'source/js/jquery.mask.js',
                   'source/js/main.js'])
             .pipe(concat('all.js'))
             .pipe(uglify())
