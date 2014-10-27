@@ -351,6 +351,12 @@ body {
     border-bottom: 1px dotted @color-secondary-2-4;
 }
 
+.modal-body {
+    @media only screen and (max-width: 650px) {
+        padding: 5px;
+    }
+}
+
 .modal-footer {
     border-top: 1px dotted @color-secondary-2-4;
 }
@@ -408,6 +414,12 @@ body {
                 color: @color-secondary-2-1;
                 .linear-gradient(@color-secondary-2-4, @color-secondary-2-3);
             }
+
+            &:disabled {
+                box-shadow: none;
+                color: @color-secondary-2-1;
+                .linear-gradient(@color-secondary-2-4, @color-secondary-2-3);
+            }
         }
     }
 }
@@ -425,12 +437,13 @@ body {
 
     &__item {
         margin-bottom: 20px;
+        .clearfix;
     }
 
     &__title,
     &__quant,
     &__sum {
-        display: inline-block;
+        float: left;
         vertical-align: middle;
     }
 
@@ -443,6 +456,7 @@ body {
         @media only screen and (max-width: 650px) {
             text-align: center;
             width: 100%;
+            .clearfix;
         }
     }
 
@@ -466,4 +480,40 @@ body {
         padding: 3px;
     }
 
+}
+
+
+/*контактные данные*/
+.contacts {
+    &__description {
+        font-size: 1.1em;
+        padding: 15px 5px 10px;
+        text-align: center;
+    }
+}
+
+
+/*тултип валидации*/
+
+.tooltip-inner {
+    background-color: @color-secondary-2-3;
+    border: 1px solid @color-secondary-2-3;
+    color: lighten(@color-primary-1, 10%);
+    font: 1.4em Georgia, "Century Schoolbook L", Serif;
+    max-width: 350px;
+    padding: 5px 10px;
+}
+
+.tooltip.top .tooltip-arrow {
+    border-top-color: @color-secondary-2-3;
+}
+
+
+
+/*форма сообщения о подтверждении заказа*/
+.confirm {
+    &__content {
+        font-size: 1.2em;
+        text-align: center;
+    }
 }
