@@ -54,27 +54,32 @@
 
             // инициализация корзины
             initCart: function (data) {
+                var i, l;
+
                 cart = data;
                 cart.totalSum = 0;
 
-                cart.products.forEach(function (item) {
-                    item.quant = 0;
-                    item.sum = 0;
-                });
+                for (i = 0, l = cart.products.length; i < l; i++) {
+                    cart.products[i].quant = 0;
+                    cart.products[i].sum = 0;
+                }
             },
 
 
             // обновить состояние корзины
             updateCart: function () {
-                cart.totalSum = cart.products.reduce(function (sum, item) {
-                    item.sum = item.quant * item.price;
+                var i, l;
 
-                    if (isNaN(item.sum)) {
-                        item.sum = 0;
+                cart.totalSum = 0;
+                for (i = 0, l = cart.products.length; i < l; i++) {
+                    cart.products[i].sum = +cart.products[i].quant * +cart.products[i].price;
+
+                    if (isNaN(cart.products[i].sum)) {
+                        cart.products[i].sum = 0;
                     }
 
-                    return sum + item.sum;
-                }, 0);
+                    cart.totalSum += cart.products[i].sum;
+                }
             },
 
 
@@ -220,7 +225,6 @@
                     return;
                 }
 
-                console.log(cart);
                 $(e.target).attr('disabled', 'disabled');
                 // запрос на сервер
                 $.ajax({
