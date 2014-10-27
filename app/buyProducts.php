@@ -60,18 +60,19 @@ $smarty->assign('totalSum', $cart['totalSum']);
 $producerMail = $smarty->fetch('producer.mail.tpl');
 $customerMail = $smarty->fetch('customer.mail.tpl');
 
+
 // отправка на свой email
 if (!send_email('Поступил новый заказ', $producerMail, 'vampir2236@mail.ru')) {
     echo 'error';
     http_response_code(500);
 } else {
-    echo 'ok';
-    http_response_code(200);
-
     // отправка письма заказчику
     try {
         send_email('Бочонок мёда', $customerMail, $cart['contacts']['email']);
     } catch (Exception $e) {
         //echo 'error';
     }
+    
+    echo 'ok';
+    http_response_code(200);
 }
