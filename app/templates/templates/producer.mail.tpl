@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html lang="ru">
 
 <head>
     <title>Новый заказ</title>
@@ -77,7 +78,7 @@
                                 </thead>
                                 <tbody>
                                     {foreach from=$products item=i}
-                                    {if $i.quant > 0}
+                                    {if $i.quant != 0}
                                     <tr>
                                         <td style="padding: 5px 10px;">{$i.title}</td>
                                         <td style="padding: 5px 10px;" align="right">{number_format($i.price, 2, '.', ' ')} {$i.currency}</td>
