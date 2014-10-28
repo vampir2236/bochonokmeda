@@ -49,6 +49,7 @@
     /* js */
     gulp.task('js', function () {
         gulp.src(['bower_components/jquery/dist/jquery.js',
+                  'bower_components/jquery.scrollTo/jquery.scrollTo.js',
                   'bower_components/bootstrap/dist/js/bootstrap.js',
                   'bower_components/handlebars/handlebars.js',
                   'source/js/jquery-ui.min.js',
