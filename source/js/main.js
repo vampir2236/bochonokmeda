@@ -1,5 +1,5 @@
-/*global jQuery, Handlebars*/
-(function ($, Handlebars) {
+/*global jQuery, Handlebars, window*/
+(function ($, Handlebars, window) {
     'use strict';
 
 
@@ -143,6 +143,8 @@
                 _this.$spinners.on('change', $.proxy(_this.spinnerOnChange, _this));
                 _this.$contactsForm.on('submit', $.proxy(_this.buyProducts, _this));
                 $('.modal__order').on('click', $.proxy(_this.buyProducts, _this));
+
+                $(window).on('resize', $.proxy(_this.hideValidationTooltips, _this));
             },
 
 
@@ -227,7 +229,8 @@
 
             // показать тултип валидации
             showValidationTooltip: function (elem, title) {
-                var $elem = $(elem);
+                var _this = this,$elem = $(elem),
+                    $tooltip;
 
                 $elem.tooltip({
                     title: title,
@@ -235,9 +238,14 @@
                 }).tooltip('show');
 
                 // закрытие тултипа по клику
-                $('.tooltip-inner').on('click', function () {
+                
+                $tooltip = $('.tooltip-inner');
+                $tooltip.on('click', function () {
                     $elem.tooltip('destroy');
                 });
+
+                //скролимся на тултип
+                _this.$cartModal.scrollTo($tooltip, 200);
             },
 
 
@@ -292,4 +300,4 @@
 
     app.init();
 
-})(jQuery, Handlebars);
+})(jQuery, Handlebars, window);
